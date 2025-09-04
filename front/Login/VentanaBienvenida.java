@@ -25,7 +25,10 @@ public class VentanaBienvenida extends JFrame {
     }
 
     private void initComponents() {
-        String rolTexto = (idRol == 1) ? "Administrador" : (idRol == 2) ? "Contador" : (idRol == 3) ? "Usuario Corriente" : "Desconocido";
+        String rolTexto = (idRol == 1) ? "Administrador" :
+                          (idRol == 2) ? "Contador" :
+                          (idRol == 3) ? "Usuario Corriente" : "Desconocido";
+
         JLabel lblBienvenida = new JLabel("¡Bienvenido/a, " + nombres + " (" + rolTexto + ")!");
         lblBienvenida.setHorizontalAlignment(SwingConstants.CENTER);
 
@@ -34,6 +37,7 @@ public class VentanaBienvenida extends JFrame {
         JButton btnLibroDiario = new JButton("Libro Diario");
         JButton btnLibroMayor = new JButton("Libro Mayor");
 
+        // Eventos con paso de parámetros del usuario
         btnPlanCuentas.addActionListener(e -> abrirVentanaPlanDeCuentas());
         btnLibroDiario.addActionListener(e -> abrirVentanaLibroDiario());
         btnLibroMayor.addActionListener(e -> abrirVentanaLibroMayor());
@@ -55,18 +59,21 @@ public class VentanaBienvenida extends JFrame {
     }
 
     private void abrirVentanaPlanDeCuentas() {
+        // Pasamos los datos del usuario
         VentanaPlanDeCuentas ventana = new VentanaPlanDeCuentas();
         ventana.setVisible(true);
         dispose();
     }
 
     private void abrirVentanaLibroDiario() {
-        VentanaLibroDiario ventana = new VentanaLibroDiario();
+        // Pasamos los datos del usuario
+        VentanaLibroDiario ventana = new VentanaLibroDiario(idUsuario, nombres, idRol);
         ventana.setVisible(true);
         dispose();
     }
 
     private void abrirVentanaLibroMayor() {
+        // Pasamos los datos del usuario
         VentanaLibroMayor ventana = new VentanaLibroMayor();
         ventana.setVisible(true);
         dispose();

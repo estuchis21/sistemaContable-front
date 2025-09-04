@@ -1,5 +1,6 @@
 package sistemacontable.sistemaContable.front.Login.Controllers;
 
+import java.util.List;
 import sistemacontable.back.Models.Cuentas;
 import sistemacontable.back.Services.PlanDeCuentasService;
 
@@ -18,5 +19,9 @@ public class PlanDeCuentasController {
 
     public Integer obtenerCuentaPorId(int idCuenta) {
         return planService.mostrarCuentaPorId(idCuenta);
+    }
+    
+    public List<Cuentas> mostrarCuentas(){
+        return planService.mostrarCuentas();
     }
 }
